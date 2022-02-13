@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Create Instructor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+        body {
+            background-color: black;
+            font-family: 'Indie Flower', cursive;
+        }
+        .container {
+            background-color: rgb(126, 1, 1);
+        }
+    </style>
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p style="background-color:rgb(162, 0, 177); color: black; font-size: medium;">{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div
+        class="container w-75 mt-3 p-3 border border-4 border-dark rounded fw-bold align-items-center text-light">
+        <div class="container w-50">
+        <div class="container w-75 p-2 border">
+            <h2 class="text-center">Create Your Profile </h2>
+            <form action="/update_instructor/{{user.id}}" method="POST">
+                <div class="mb-3 text-center">
+                    <img src="{{ url_for('static', filename='img/welcome.png') }}" height="100px"
+                    class="border border-dark rounded-circle">
+                    <h4>Profile Pic</h4>
+                    <input type="file" name="profile_pic" class="border">
+                </div>
+                <div class="container">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">First Name: </label>
+                        <input type="text" name="first_name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Last Name: </label>
+                        <input type="text" name="last_name" class="form-control">
+                    </div>
+                    <div class="text-center mt-2">
+                        <label for="date">Your Birthday:</label>
+                        <input type="date" name="birthday">
+                    </div> <br>
+                    <label for="gender">Gender</label> <br>
+                    <div class="d-flex justify-content-evenly">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="female">
+                        <label class="form-check-label" for="inlineRadio1">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="male">
+                        <label class="form-check-label" for="inlineRadio2">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="nonbinary">
+                        <label class="form-check-label" for="inlineRadio2">Nonbinary</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="other">
+                        <label class="form-check-label" for="inlineRadio2">Other</label>
+                    </div>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="name" class="form-label">Summary: </label> <br>
+                        <textarea class="align-middle" name="summary" cols="45" rows="3"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button class="btn btn-outline-dark">Create</button>
+                    </div>
+                </div>
+        </div>
+        </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+}
+
+/*  Calendar modification */
+
+.fc td, .fc th {
+    border-width: 1.5px;
+}
+
+.fc-unthemed td, .fc-unthemed th {
+    border-color: black;
+    
+}
+
+.fc-ltr .fc-list-item-marker {
+    padding: 8px 14px;
+}
